@@ -61,7 +61,7 @@ void Array::SortDescending(){
 void Array::SortAscending(){
     for(int i = 0; i < this->size - 1; i++){
         for(int j = i + 1; j < this->size; j++){
-            if(this->arr[i] < this->arr[j]){
+            if(this->arr[i] > this->arr[j]){
                 SwapElement(this->arr[i], this->arr[j]);
             }
         }

@@ -8,8 +8,7 @@ int main(){
     int num;
     std::cout << "Enter position: ";
     std::cin >> num;
-    std::cout << "Size of array and the value at postion is: ";
-    std::cout << a.GetSize() << " " << a.GetElement(1) << "\n";
+    std::cout << "Size: " << a.GetSize() << " Element at position: " << a.GetElement(1) << "\n";
 
     std::cout << "Enter the finding number: ";
     std::cin >> num;

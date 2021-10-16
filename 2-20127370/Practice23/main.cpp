@@ -2,7 +2,7 @@
 
 int main(){
     Student a, b;
-    std::cout << "Input student info: ";
+    std::cout << "Input student info: \n";
     a.InputStudent();
     b.InputStudent();
 

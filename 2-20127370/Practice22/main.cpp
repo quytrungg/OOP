@@ -15,7 +15,7 @@ int main(){
     a = a.DeriveMonomial();
     b = b.DeriveMonomial();
 
-    std::cout << "The 2 monomials have been derived!\nThe monomials: ";
+    std::cout << "The 2 monomials have been derived!\nThe derived monomials: ";
     a.OutputMonomial();
     b.OutputMonomial();
 
