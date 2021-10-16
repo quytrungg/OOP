@@ -19,8 +19,8 @@ int main(){
     Fraction add = a[0].Add(a[1]);
 
     Fraction mul = a[0].Mul(a[1]);
-    std::cout << "Add: " << add << "\n";
-    std::cout << "Mul: " << mul << "\n";
+    std::cout << "Addition of the first 2 elements: " << add << "\n";
+    std::cout << "Multiplication of the first 2 elements: " << mul << "\n";
     std::cout << "Compare: " << a[0].CompareFraction(a[1]) << "\n";
 
     for(int i = 0; i < n; i++){

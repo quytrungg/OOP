@@ -79,9 +79,8 @@ Fraction Fraction::InverseFraction(){
 //Add 2 fractions
 Fraction Fraction::Add(Fraction p){
     Fraction sum;
-    this->CommonDenominator(p);
-    sum.SetNum(this->num + p.GetNum());
-    sum.SetDen(this->den);
+    sum.num = this->num * p.den + p.num * this->den;
+    sum.den = this->den * p.den;
     sum.ReduceFraction();
     return sum;
 }
@@ -89,7 +88,6 @@ Fraction Fraction::Add(Fraction p){
 //Multiply 2 fractions
 Fraction Fraction::Mul(Fraction p){
     Fraction mul;
-    this->CommonDenominator(p);
     mul.SetNum(this->num * p.GetNum());
     mul.SetDen(this->den * p.GetDen());
     mul.ReduceFraction();
