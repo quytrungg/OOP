@@ -18,7 +18,17 @@ void Array::OutputArray(){
 
 //Set size of array
 void Array::SetSize(int s){
-    this->size = s;
+    if(s > 0){
+        this->size = s;
+        int* temp = this->arr;
+        this->arr = new int[this->size];
+        for(int i = 0; i < this->size; i++){
+            this->arr[i] = temp[i];
+        }
+    }
+    else{
+        throw "Invalid size\n";
+    }
 }
 
 //Get size of array
