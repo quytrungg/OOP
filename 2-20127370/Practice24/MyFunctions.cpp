@@ -28,6 +28,10 @@ int Array::GetSize(){
 
 //Set element in array
 void Array::SetElement(int pos, int e){
+    do{
+        std::cout << "Enter position and new value: ";
+        std::cin >> pos >> e;
+    } while(pos < 0 || pos > this->size);
     this->arr[pos] = e;
 }
 
