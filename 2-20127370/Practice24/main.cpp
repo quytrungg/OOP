@@ -19,11 +19,11 @@ int main(){
     int pos, e;
     a.SetElement(pos, e);
 
-    a.SortAscending();
+    a.Sort(Ascending);
     std::cout << "Ascending order: ";
     a.OutputArray();
     std::cout << std::endl;
-    a.SortDescending();
+    a.Sort(Descending);
     std::cout << "Descending order: ";
     a.OutputArray();
     return 0;

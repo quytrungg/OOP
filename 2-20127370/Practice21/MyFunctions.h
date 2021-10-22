@@ -21,6 +21,7 @@ public:
     Fraction Add(Fraction p);
     Fraction Mul(Fraction p);
     int CompareFraction(Fraction p);
+    void SortFraction(Fraction* a, int n, bool (*operation)(Fraction, Fraction));
 };
 
 template <typename T>
@@ -31,8 +32,8 @@ void SwapElement(T &a, T &b){
 }
 
 int LCD(int a, int b);
-bool operator>(Fraction x, Fraction y);
-bool operator<(Fraction x, Fraction y);
+bool Ascending(Fraction x, Fraction y);
+bool Descending(Fraction x, Fraction y);
 std::ostream& operator<<(std::ostream& output, Fraction &fraction);
 std::istream& operator>>(std::istream& input, Fraction &fraction);
 

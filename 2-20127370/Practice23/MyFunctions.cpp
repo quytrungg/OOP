@@ -2,8 +2,9 @@
 
 //Input student information
 void Student::InputStudent(){
-    std::cin >> this->name;
+    std::getline(std::cin, this->name, '\n');
     std::cin >> this->liter >> this->math;
+    std::cin.ignore();
 }
 
 //Output student information

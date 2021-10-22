@@ -60,22 +60,19 @@ int Array::FindElement(int e){
     return -1;
 }
 
-//Sort the array descendingly
-void Array::SortDescending(){
-    for(int i = 0; i < this->size - 1; i++){
-        for(int j = i + 1; j < this->size; j++){
-            if(this->arr[i] < this->arr[j]){
-                SwapElement(this->arr[i], this->arr[j]);
-            }
-        }
-    }
+bool Ascending(int a, int b){
+    return a < b;
 }
 
-//Sort the array ascendingly
-void Array::SortAscending(){
+bool Descending(int a, int b){
+    return a > b;
+}
+
+//Sort the array descendingly
+void Array::Sort(bool (*sort)(int, int)){
     for(int i = 0; i < this->size - 1; i++){
         for(int j = i + 1; j < this->size; j++){
-            if(this->arr[i] > this->arr[j]){
+            if(!(*sort)(this->arr[i], this->arr[j])){
                 SwapElement(this->arr[i], this->arr[j]);
             }
         }

@@ -119,12 +119,12 @@ int Fraction::CompareFraction(Fraction p){
 }
 
 //Define > for fractions
-bool operator>(Fraction x, Fraction y){
+bool Ascending(Fraction x, Fraction y){
     return x.CompareFraction(y) == 1;
 }
 
 //Define < for fractions
-bool operator<(Fraction x, Fraction y){
+bool Descending(Fraction x, Fraction y){
     return x.CompareFraction(y) == -1;
 }
 
@@ -143,4 +143,16 @@ std::istream& operator>>(std::istream& input, Fraction &fraction){
     fraction.SetNum(tu);
     fraction.SetDen(mau);
     return input;
+}
+
+void Fraction::SortFraction(Fraction* a, int n, bool (*operation)(Fraction, Fraction)){
+    for(int i = 0; i < n - 1; i++){
+        int idx = i;
+        for(int j = i + 1; j < n; j++){
+            if((*operation)(a[i], a[j])){
+                SwapElement(a[i], a[j]);
+            }
+        }
+        //SwapElement(a[idx], a[i]);
+    }
 }

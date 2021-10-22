@@ -23,8 +23,10 @@ public:
     void SetElement(int pos, int e);
     int GetElement(int pos);
     int FindElement(int e);
-    void SortAscending();
-    void SortDescending();
+    void Sort(bool(*sort)(int, int));
 };
+
+bool Ascending(int a, int b);
+bool Descending(int a, int b);
 
 #endif

@@ -23,6 +23,8 @@ int main(){
     std::cout << "Multiplication of the first 2 elements: " << mul << "\n";
     std::cout << "Compare: " << a[0].CompareFraction(a[1]) << "\n";
 
+    a->SortFraction(a, n, Ascending);
+
     for(int i = 0; i < n; i++){
         a[i].ReduceFraction();
     }

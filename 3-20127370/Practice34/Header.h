@@ -3,6 +3,20 @@
 
 #include <iostream>
 
+template <typename T>
+class Array
+{
+private:
+    T* arr;
+    T size;
+public:
+    Array();
+    Array(T s);
+    Array(T* &a, T s);
+    Array(const Array &a);
+    ~Array();
+    void OutputArray();
+};
 
 
 #endif
