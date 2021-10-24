@@ -16,7 +16,7 @@ public:
     Fraction(const Fraction &p);
     ~Fraction();
     void OutputFraction();
-    static int GetNumberObject(){
+    static int getCount(){
         return count;
     }
 };

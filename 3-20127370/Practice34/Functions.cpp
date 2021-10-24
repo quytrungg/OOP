@@ -1,19 +1,22 @@
 #include "Header.h"
 
+//Constructor for array with default size 0
 template <typename T>
 Array<T>::Array(){
     this->size = 0;
 }
 
+//Constructor for array with given size and default elements' value 0
 template <typename T>
 Array<T>::Array(T s){
     this->size = s;
-    arr = new T[s];
+    arr = new T[this->size];
     for(int i = 0; i < this->size; i++){
-        arr[i] = 0;
+        this->arr[i] = 0;
     }
 }
 
+//Constructor for array copied from a given array with its size
 template <typename T>
 Array<T>::Array(T* &a, T s){
     this->size = s;
@@ -23,26 +26,31 @@ Array<T>::Array(T* &a, T s){
     }
 }
 
+//Constructor copy from another array
 template <typename T>
 Array<T>::Array(const Array &a){
     if(a.arr == nullptr){
-        std::cout << "NULL pointer array cannot be copied!\n";
+        std::cout << "Cannot copy an empty array!\n";
+        exit(0);
     }
     else{
         this->size = a.size;
-        arr = new T[this->size];
+        this->arr = new T[this->size];
         for(int i = 0; i < this->size; i++){
-            arr[i] = a[i];
+            this->arr[i] = a.arr[i];
         }
     }
 }
 
+//Destructor for array, deallocate the array pointer
 template <typename T>
 Array<T>::~Array(){
     delete[] this->arr;
+    this->arr = nullptr;
     std::cout << "Deallocated\n";
 }
 
+//Print the array on screen
 template <typename T>
 void Array<T>::OutputArray(){
     for(int i = 0; i < this->size; i++){

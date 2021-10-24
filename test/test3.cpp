@@ -1,52 +1,150 @@
 #include <iostream>
-#include <string>
-#include <fstream>
-
-template <typename T>
-T calc(T x, T y){
-    return x + y;
+#include <stdlib.h>
+using namespace std;
+ 
+/*
+####################################################################
+#          Tim thu khi biet ngay thang nam                         # 
+####################################################################
+*/
+ 
+ 
+// Kiem tra ngay hop le
+bool check_date(int day, int month){
+ if ((month==2) && (day>0) && (day<30)){
+ return true;
+ }
+ if ((
+ (month==1) ||
+ (month==3) ||
+ (month==5) ||
+ (month==7) ||
+ (month==8) ||
+ (month==10)||
+ (month==12)
+ ) && ((day>0) && (day<32)))
+ {
+ return true;
+ }
+ if ((
+ (month==4) ||
+ (month==6) ||
+ (month==9) ||
+ (month==11)
+ ) && ((day>0) && (day<31)))
+ {
+ return true;
+ }
+ return false;
 }
-
-struct PhanSo{
-    int tu;
-    int mau;
-};
-
-//typedef int (* awp)(int, int);
-/*int cal(int x, int y, awp p){
-    x *= x;
-    y *=y*y;
-    return p(x, y);
-}*/
-
-int cal(int x, int y, int(*p)(int, int)){
-    x *= x;
-    y *=y*y;
-    return p(x, y);
+ 
+ 
+// Kiem tra thang hop le
+bool check_month(int month){
+ if ((month>0) && (month<13)){
+  return true;
+ }else{
+  return false;
+ }
 }
-
-int add(int x, int y){
-    return x+y;
+ 
+// Kiem tra nam hop le
+bool check_year(int year){
+ 
+ if ((year>999) && (year < 10000)){
+ return true;
+ }else{
+ 
+ return false;
+ }
+ 
 }
-
-int mul(int x, int y){
-    return x*y;
+// Kiem tra nam nhuan
+bool check_leap_year(int year){
+ if (((year % 4)==0) && ((year % 100)!=0)){
+  return true;
+ }else if ((year % 400)==0){
+  return true;
+ }else {
+  return false;
+ }
+ 
+ 
 }
-
+ 
+// Tim chính xác thu theo ngày tháng nam dã biêt
+//
+// http://en.wikipedia.org/wiki/Julian_day#Calculation
+//
+const char *get_day(int day, int month, int year){
+  int JMD;
+   JMD = (day + ((153 * (month + 12 * ((14 - month) / 12) - 3) + 2) / 5) +
+     (365 * (year + 4800 - ((14 - month) / 12))) +
+     ((year + 4800 - ((14 - month) / 12)) / 4) - 
+    ((year + 4800 - ((14 - month) / 12)) / 100) + 
+    ((year + 4800 - ((14 - month) / 12)) / 400)  - 32045) % 7;
+ //cout << JMD;
+ const char *weekday[] = {"Thu 2", 
+   "Thu 3", 
+   "Thu 4",
+   "Thu 5", 
+   "Thu 6", 
+   "Thu 7", 
+   "Chu nhat"};
+ return weekday[JMD];
+}
+ 
+ 
 int main(){
-    int x = calc(3, 5);
-    double y = calc(4.2, 6.3);
-    PhanSo p1, p2;
-    p1.tu = 1;
-    p1.mau = 2;
-    p2.tu = 2;
-    p2.mau = 3;
-    //PhanSo p3 = calc(p1, p2);
-
-    int a = cal(3, 5, add);
-    int b = cal(4, 6, mul);
-
-    std::cout << a << " " << b << "\n";
-
-    std::cout << x << " " << y << " " << p1.tu << "/" << p1.mau << "\n";
+ // Khai bao bien
+ int year, month, date, x, y;
+ 
+ 
+ cout << "\n[+] CHUONG TRINH TINH THU KHI BIET NGAY THANG NAM.";
+ 
+ // Take Inputs
+ cout << "\n[+] Vui long nhap nam [YYYY] : ";
+ cin >> year;
+// cout << "\n[+] Kiem tra  [YYYY] : ";
+ 
+ // verify year
+ if (check_year(year)){
+  cout << "[-] Xac nhan!";
+ }else{
+  cout << "\n\t [-] Nhap sai!\n";
+  exit(0);
+ }
+ 
+ 
+ cout << "\n[+] Vui long nhap thang  [MM] : ";
+ cin >> month;
+ 
+ // verify month
+ if (check_month(month)){
+  cout << "[-] Xac nhan!";
+ }else{
+  cout << "[-] Nhap sai!";
+  exit(0);
+ }
+ cout << "\n[+] Vui long nhap ngay [DD] : ";
+ cin >> date;
+ 
+ 
+ // verify date
+ if (check_date(date, month)){
+  cout << "[-] Xac nhan!\n\n";
+ }else{
+  cout << "[-] Nhap sai!";
+  exit(0);
+ }
+ cout << "[+] Ngay : " << date << ", Thang : " << month << ", Nam : " << year << " [ ";
+ if (check_leap_year(year)){
+  cout << "Nam nhuan" << " ]";
+ }else{
+  cout << "Khong phai nam nhuan" << " ]";
+ }
+ cout << "\n[-] Ngay trong tuan: ";
+ cout << get_day(date, month, year);
+ cout << "\n\n";
+ return 0;
 }
