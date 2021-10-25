@@ -54,65 +54,80 @@ Fraction Fraction::operator+(Fraction p){
     Fraction sum;
     sum.SetNum(this->num * p.GetDen() + p.GetNum() * this->den);
     sum.SetDen(this->den * p.GetDen());
+    sum.ReduceFraction();
     return sum;
 }
 
-Fraction operator*(Fraction p){
+Fraction Fraction::operator*(Fraction p){
+    Fraction mul;
+    mul.SetNum(this->num * p.GetNum());
+    mul.SetDen(this->den * p.GetDen());
+    mul.ReduceFraction();
+    return mul;
+}
+
+Fraction Fraction::operator+=(Fraction p){
+    Fraction sum;
+    this = this + p;
+    this->ReduceFraction();
+    sum.SetNum(this->num);
+    sum.SetDen(this->den);
+    return sum;
+}
+
+Fraction Fraction::operator*=(Fraction p){
+    Fraction mul;
+    this = this * p;
+    this->ReduceFraction();
+    mul.SetNum(this->num);
+    mul.SetDen(this->den);
+    return mul;
+}
+
+int Fraction::compare(Fraction p){
 
 }
 
-Fraction operator+=(Fraction p){
+bool Fraction::operator>(Fraction p){
 
 }
 
-Fraction operator*=(Fraction p){
+bool Fraction::operator<(Fraction p){
 
 }
 
-int compare(Fraction p){
+bool Fraction::operator==(Fraction p){
 
 }
 
-bool operator>(Fraction p){
+bool Fraction::operator!=(Fraction p){
 
 }
 
-bool operator<(Fraction p){
+bool Fraction::operator>=(Fraction p){
 
 }
 
-bool operator==(Fraction p){
+bool Fraction::operator<=(Fraction p){
 
 }
 
-bool operator!=(Fraction p){
+Fraction Fraction::operator=(Fraction p){
 
 }
 
-bool operator>=(Fraction p){
+Fraction& Fraction::operator++(){
 
 }
 
-bool operator<=(Fraction p){
+Fraction& Fraction::operator--(){
 
 }
 
-Fraction operator=(Fraction p){
+Fraction Fraction::operator++(int num){
 
 }
 
-Fraction& operator++(){
-
-}
-
-Fraction& operator--(){
-
-}
-
-Fraction operator++(int num){
-
-}
-
-Fraction operator--(int num){
+Fraction Fraction::operator--(int num){
     
 }

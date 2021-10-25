@@ -19,6 +19,10 @@ Array<T>::Array(T s){
 //Constructor for array copied from a given array with its size
 template <typename T>
 Array<T>::Array(T* &a, T s){
+    if(s <= 0 || a == nullptr){
+        std::cout << "Cannot construct object!\n";
+        exit(0);
+    }
     this->size = s;
     this->arr = new T[this->size];
     for(int i = 0; i < this->size; i++){

@@ -11,9 +11,11 @@ int main(){
     arr[4] = 10;
     Array<int> b(arr, 5);
     Array<int> c = a;
+    Array<int> d;
 
     a.OutputArray();
     b.OutputArray();
     c.OutputArray();
+    d.OutputArray();
     return 0;
 }

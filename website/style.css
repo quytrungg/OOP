@@ -65,4 +65,18 @@ html, body{
     margin: 0;
     font-size: 4em;
     font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: normal;
+    color: white;
+}
+
+.band-name-large{
+    font-size: 7em;
+}
+
+.content-section{
+    margin: 1em;
+}
+
+.container{
+    max-width: 900px;
 }
