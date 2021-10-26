@@ -10,12 +10,16 @@ int main(){
     arr[3] = 9;
     arr[4] = 10;
     Array<int> b(arr, 5);
-    Array<int> c = a;
+    Array<int> c = b;
     Array<int> d;
 
+    std::cout << "Array object with default elements 0: ";
     a.OutputArray();
+    std::cout << "Array object with given array and lengeth: ";
     b.OutputArray();
+    std::cout << "Array object copied form the above array object: ";
     c.OutputArray();
+    std::cout << "Array object with default constructor: ";
     d.OutputArray();
     return 0;
 }
