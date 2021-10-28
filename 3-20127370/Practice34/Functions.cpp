@@ -4,6 +4,7 @@
 template <typename T>
 Array<T>::Array(){
     this->size = 0;
+    this->arr = nullptr;
 }
 
 //Constructor for array with given size and default elements' value 0
@@ -61,4 +62,9 @@ void Array<T>::OutputArray(){
         std::cout << this->arr[i] << " ";
     }
     std::cout << "\n";
+}
+
+template <typename T>
+T& Array<T>::operator[](int pos){
+    return this->arr[pos];
 }

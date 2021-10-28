@@ -23,6 +23,7 @@ public:
     int CompareFraction(Fraction p);
     void SortFraction(Fraction* a, int n, bool (*operation)(Fraction, Fraction));
     friend std::ostream& operator<<(std::ostream& output, Fraction &fraction);
+    bool operator>(Fraction p);
 };
 
 template <typename T>

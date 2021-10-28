@@ -21,5 +21,7 @@ int main(){
     c.OutputArray();
     std::cout << "Array object with default constructor: ";
     d.OutputArray();
+    b[1] = 100;
+    std::cout << b[1] << "\n";
     return 0;
 }

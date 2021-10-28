@@ -16,6 +16,7 @@ public:
     Array(const Array &a);
     ~Array();
     void OutputArray();
+    T& operator[](int pos);
 };
 
 

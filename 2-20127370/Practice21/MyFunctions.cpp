@@ -156,3 +156,18 @@ void Fraction::SortFraction(Fraction* a, int n, bool (*operation)(Fraction, Frac
         //SwapElement(a[idx], a[i]);
     }
 }
+
+bool Fraction::operator>(Fraction p){
+    this->CommonDenominator(p);
+    if(this->num > p.GetNum() && this->den > 0 && p.GetDen() > 0){
+        return true;
+    }
+    else if(this->num < p.GetNum() && this->den < 0 && p.GetDen() < 0){
+        return true;
+    }
+    else if(this->num > p.GetNum() && this->den > 0 && p.GetDen() < 0){
+        return true;
+    }
+    else return false;
+    //return this->CompareFraction(p) == 1;
+}
