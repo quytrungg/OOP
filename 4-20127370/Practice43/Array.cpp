@@ -75,6 +75,17 @@ std::istream& operator>>(std::istream& in, Array<T> &a){
 }
 
 template <typename T>
+template <typename T2>
+Array<T>::operator T2*(){
+    if(this->size == 0) return nullptr;
+    T2* result = new T2[this->size];
+    for(int i = 0; i < this->size; i++){
+        result[i] = T2(this->element[i]);
+    }
+    return result;
+}
+
+template <typename T>
 Array<T>::~Array(){
     delete[] this->element;
 }

@@ -15,7 +15,7 @@ int main(){
     Array<int> b = a;
 
     Array<float> c(p, 5); 
-    int* temp = c;   
+    int* temp = c;
 
     std::cout << "Operator[] of A:\n";
     for(int i = 0; i < a.getSize(); i++)

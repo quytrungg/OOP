@@ -87,12 +87,12 @@ Monomial& Monomial::operator*=(Monomial m){
 }
 
 Monomial& Monomial::operator++(){
-    this->coe += 1;
+    this->exp += 1;
     return *this;
 }
 
 Monomial& Monomial::operator--(){
-    this->coe -= 1;
+    this->exp -= 1;
     return *this;
 }
 
