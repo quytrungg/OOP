@@ -2,9 +2,9 @@
 
 int main(){
     Fraction a, b;
-    std::cout << "Enter fraction A: ";
+    std::cout << "Enter fraction A (Operator>>): ";
     std::cin >> a;
-    std::cout << "Enter second fraction B: ";
+    std::cout << "Enter fraction B (Operator>>): ";
     std::cin >> b;
 
     Fraction sum = a + b;
@@ -38,6 +38,9 @@ int main(){
     --a;
     std::cout << "--A: " << a << "\n";
 
-    std::cout << a << " " << b;
+    float c = a;
+    int d = b;
+    std::cout << "Float and integer conversion of A and B: " << c << " " << d << "\n";
+    std::cout << "Fraction A and B (Operator<<): " << a << " " << b;
     return 0;
 }

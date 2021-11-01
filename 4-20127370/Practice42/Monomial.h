@@ -10,8 +10,28 @@ private:
     int exp;
 public:
     Monomial();
-    Monomial(const Monomial& m);
-    
+    void setCoe(float heso);
+    float getCoe();
+    void setExp(int somu);
+    int getExp();
+    Monomial operator+(Monomial m);
+    Monomial operator*(Monomial m);
+    bool operator>(Monomial m);
+    bool operator<(Monomial m);
+    bool operator==(Monomial m);
+    bool operator>=(Monomial m);
+    bool operator<=(Monomial m);
+    bool operator!=(Monomial m);
+    Monomial operator=(Monomial m);
+    Monomial& operator+=(Monomial m);
+    Monomial& operator*=(Monomial m);
+    Monomial& operator++();
+    Monomial& operator--();
+    Monomial operator++(int num);
+    Monomial operator--(int num);
+    Monomial operator!();
+    friend std::ostream& operator<<(std::ostream& out, Monomial m);
+    friend std::istream& operator>>(std::istream& in, Monomial &m);
     ~Monomial();
 };
 

@@ -207,6 +207,14 @@ std::istream& operator>>(std::istream& input, Fraction &p){
     return input;
 }
 
-~Fraction(){
+Fraction::operator float(){
+    return (float) this->num / this->den;
+}
+
+Fraction::operator int(){
+    return (int) this->num / this->den;
+}
+
+Fraction::~Fraction(){
     
 }

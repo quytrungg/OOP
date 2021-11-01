@@ -35,6 +35,8 @@ public:
     Fraction operator--(int num);
     friend std::ostream& operator<<(std::ostream& output, Fraction &p);
     friend std::istream& operator>>(std::istream& input, Fraction &p);
+    operator float();
+    operator int();
     ~Fraction();
 };
 
