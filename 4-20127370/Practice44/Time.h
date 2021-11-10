@@ -22,18 +22,18 @@ public:
     int getHour();
     void setAbsSec(int s);
     int getAbsSec();
-    int compareTime(Time t);
-    bool operator>(Time t);
-    bool operator<(Time t);
-    bool operator==(Time t);
-    bool operator>=(Time t);
-    bool operator<=(Time t);
-    bool operator!=(Time t);
-    Time operator+(Time t);
+    int compareTime(const Time &t);
+    bool operator>(const Time &t);
+    bool operator<(const Time &t);
+    bool operator==(const Time &t);
+    bool operator>=(const Time &t);
+    bool operator<=(const Time &t);
+    bool operator!=(const Time &t);
+    Time operator+(const Time &st);
     Time& operator++();
     Time operator++(int arg);
     friend std::ostream& operator<<(std::ostream& out, Time t);
-    friend std::istream& operator>>(std::istream& in, Time t);
+    friend std::istream& operator>>(std::istream& in, Time &t);
     ~Time();
 };
 

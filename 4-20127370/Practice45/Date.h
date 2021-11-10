@@ -3,4 +3,17 @@
 
 #include <iostream>
 
+class Date
+{
+private:
+    
+public:
+    Date();
+    Date(int day, int month, int year);
+
+
+    ~Date();
+};
+
+
 #endif
