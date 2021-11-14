@@ -9,7 +9,9 @@ void SavingAccount::createAccount(int p, float r){
 float SavingAccount::calculateInterest(){
     int time = this->duration / this->period;
     float rate = this->rate / 12 * time;
-    return this->m_balance * (pow(1.0 + rate / 100, time) - 1);
+    float interest = this->m_balance * (pow(1.0 + rate / 100, time) - 1);
+    this->m_balance += interest;
+    return interest;
 }
 
 void SavingAccount::updateDeposit(float money){

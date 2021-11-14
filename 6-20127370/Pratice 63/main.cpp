@@ -11,7 +11,7 @@ int main(){
     t.addWeight(50);
     t.runDistance(200);
     t.currentFuel();
-    std::cout << "Motorbike current fuel: " << m.getFuel() << "\n";
-    std::cout << "Truck current fuel: " << t.getFuel() << "\n";
+    std::cout << "Motorbike current fuel: " << m.getFuel() << " (l)\n";
+    std::cout << "Truck current fuel: " << t.getFuel() << " (l)\n";
     return 0;
 }

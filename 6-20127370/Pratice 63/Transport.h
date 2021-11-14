@@ -22,16 +22,12 @@ public:
 
 class MotorBike: public Vehicle
 {
-private:
-
 public:
     void currentFuel();
 };
 
 class Truck: public Vehicle
 {
-private:
-
 public:
     void currentFuel();
 };
