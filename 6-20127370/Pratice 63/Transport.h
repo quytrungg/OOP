@@ -22,12 +22,18 @@ public:
 
 class MotorBike: public Vehicle
 {
+private:
+    const float rate1 = 0.02;
+    const float rate2 = 0.01;
 public:
     void currentFuel();
 };
 
 class Truck: public Vehicle
 {
+private:
+    const float rate1 = 0.2;
+    const float rate2 = 0.001;
 public:
     void currentFuel();
 };

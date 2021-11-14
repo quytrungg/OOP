@@ -7,9 +7,9 @@ Vehicle::Vehicle(){
 }
 
 void MotorBike::currentFuel(){
-    this->fuel -= this->distance * 0.02 + this->weight * 0.01;
+    this->fuel -= this->distance * this->rate1 + this->weight * this->rate2 * this->distance / 100;
 }
 
 void Truck::currentFuel(){
-    this->fuel -= this->distance * 0.2 + this->weight * 0.001;
+    this->fuel -= this->distance * this->rate1 + this->weight * this->rate2 * this->distance / 100;
 }
