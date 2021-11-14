@@ -2,12 +2,14 @@
 #define HEADER_H
 
 #include <iostream>
+#include <cmath>
 
 class Account
 {
-private:
+protected:
     float m_balance;
 public:
+    Account(){m_balance = 0;}
     float getBalance(){return m_balance;}
     void deposit(float money){m_balance += money;}
     void withdraw(float money){
@@ -20,17 +22,18 @@ public:
 class SavingAccount : public Account
 {
 private:
-    int period;
-    float rate;
-    int duration;
+    int period; //months
+    float rate; //yearly
+    float duration; //months
 public:
+    void createAccount(int p, float r);
     int getPeriod(){return period;}
     float getRate(){return rate;}
-    int getDuration(){return duration;}
-    float calculateInterest(){
-
-    }  
-    
+    float getDuration(){return duration;}
+    float calculateInterest();
+    void updateDeposit(float money);
+    void updateWithdraw(float money);
+    float increaseDuration();
 };
 
 
