@@ -14,6 +14,6 @@ int main(){
 	Shape** sh = new Shape*[5];
 	_rsg.randomShape(sh, 5);
 	dis.printShapeInfo(sh, 5);
-	
+	delete[] sh;
     return 0;
 }

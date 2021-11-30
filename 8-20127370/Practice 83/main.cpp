@@ -12,6 +12,6 @@ int main(){
     Animal::compareAnimal(a[0], a[1]);
     Animal::compareAnimal(a[2], a[3]);
     Animal::compareAnimal(a[4], a[5]);
-
+    delete[] a;
     return 0;
 }
