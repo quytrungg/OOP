@@ -1,21 +1,43 @@
 #include <iostream>
-
 using namespace std;
+void insert(char str[], int &len, char ch, int vitri);
+void add_comma(char str[], int &len, char ch);
 
 int main()
 {
-    double x, S = 1, pow = 1, div = 1;
-    int n;
-    cin >> x >> n;
-    for(int i = 1; i <= n; i++){
-        pow = 1;
-        div = 1;
-        for(int j = 1; j <= 2*i; j++){
-            pow *= x;
-            div *= j;
-        }
-        S += pow/div;
+    char str[1000];
+    cout << "input number: ";
+    cin.getline (str,1000,'\n');
+    int len = strlen(str);
+    add_comma(str, len,',');
+    for(int i = 0; i < len; i++){
+        if(str[i] >= '0' && str[i] <= '9' || str[i] == ',')
+            cout << str[i];
     }
-    cout << S;
     return 0;
+}
+void insert(char str[], int &len, char ch, int vitri)
+{
+    int i;
+    for(i = len; i >vitri ; i--)
+    {
+        str[i] = str[i-1];
+    }
+    str[vitri] = ch;
+    len++;
+}
+void add_comma(char str[], int &len, char ch)
+{
+    int tmp= strlen(str)%3;
+    if (tmp != 0){
+        insert(str,len,',',tmp);
+        tmp += 4;
+    }
+    else tmp += 3;
+    for (int i=tmp; i<len;i = i + 4)
+    {
+        if (i != 0 && str[i] >= '0' && str[i] <= '9')
+            insert(str,len,',',i);
+    }
+    len++;
 }

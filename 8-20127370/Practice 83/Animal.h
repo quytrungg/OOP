@@ -9,43 +9,50 @@ protected:
 public:
     Animal(){}
     Animal(int s);
-    bool compareAnimal(Animal* a, Animal* b);
+    static void compareAnimal(Animal* a, Animal* b);
+    virtual std::string info() = 0;
 };
 
 class Cheetah: public Animal{
 private:
 public:
-    Cheetah(int s);
+    Cheetah();
+    std::string info();
 };
 
 class Antelope: public Animal{
 private:
 public:
-    Antelope(int s);
+    Antelope();
+    std::string info();
 };
 
 class Lion: public Animal{
 private:
 public:
-    Lion(int s);
+    Lion();
+    std::string info();
 };
 
 class Dog: public Animal{
 private:
 public:
-    Dog(int s);
+    Dog();
+    std::string info();
 };
 
 class Human: public Animal{
 private:
 public:
-    Human(int s);
+    Human();
+    std::string info();
 };
 
 class Horse: public Animal{
 private:
 public:
-    Horse(int s);
+    Horse();
+    std::string info();
 };
 
 #endif

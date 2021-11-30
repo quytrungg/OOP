@@ -4,18 +4,48 @@ Animal::Animal(int s){
     this->speed = s;
 }
 
-bool Animal::compareAnimal(Animal* a, Animal* b){
-    return a->speed > b->speed;
+void Animal::compareAnimal(Animal* a, Animal* b){
+    if(a->speed > b->speed){
+        std::cout << a->info() << " is faster than " << b->info() << "\n"; 
+    }
+    else if(b->speed > a->speed){
+        std::cout << b->info() << " is faster than " << a->info() << "\n";
+    }
+    else std::cout << a->info() << " is as fast as " << b->info() << "\n";
 }
 
-Cheetah::Cheetah(int s): Animal(100){}
+Cheetah::Cheetah(): Animal(100){}
 
-Antelope::Antelope(int s): Animal(80){}
+Antelope::Antelope(): Animal(80){}
 
-Lion::Lion(int s): Animal(70){}
+Lion::Lion(): Animal(70){}
 
-Dog::Dog(int s): Animal(60){}
+Dog::Dog(): Animal(60){}
 
-Human::Human(int s): Animal(30){}
+Human::Human(): Animal(30){}
 
-Horse::Horse(int s): Animal(60){}
+Horse::Horse(): Animal(60){}
+
+std::string Cheetah::info(){
+    return "Cheetah";
+}
+
+std::string Antelope::info(){
+    return "Antelope";
+}
+
+std::string Lion::info(){
+    return "Lion";
+}
+
+std::string Dog::info(){
+    return "Dog";
+}
+
+std::string Human::info(){
+    return "Human";
+}
+
+std::string Horse::info(){
+    return "Horse";
+}
