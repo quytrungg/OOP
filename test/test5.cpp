@@ -1,43 +1,58 @@
 #include <iostream>
 using namespace std;
-void insert(char str[], int &len, char ch, int vitri);
-void add_comma(char str[], int &len, char ch);
-
+void mergedarray(int n, int m, int c[200], int a[100], int b[100], int s);
 int main()
 {
-    char str[1000];
-    cout << "input number: ";
-    cin.getline (str,1000,'\n');
-    int len = strlen(str);
-    add_comma(str, len,',');
-    for(int i = 0; i < len; i++){
-        if(str[i] >= '0' && str[i] <= '9' || str[i] == ',')
-            cout << str[i];
+    int a[100],b[100], c[200],m,n;
+    cout << "So phan tu mang a: ";
+    cin >> m;
+    for (int i=0; i<m; i++)
+    {
+        cout << "Nhap a["<< i << "]";
+        cin>> a[i];
+    }
+    cout << "So phan tu mang b: ";
+    cin >> n;
+    for (int j=0; j<n; j++)
+    {
+        cout << "Nhap b["<< j << "]";
+        cin>> b[j];
+    }
+    int s= n+m;
+    mergedarray(n,m,c,a,b,s);
+    for (int k=0; k<s; k++)
+    {
+        cout << c[k] << " ";
     }
     return 0;
 }
-void insert(char str[], int &len, char ch, int vitri)
+void mergedarray(int n, int m, int c[200], int a[100], int b[100],int s)
 {
-    int i;
-    for(i = len; i >vitri ; i--)
+    int i=0, j=0, k=0;
+    while (i<m && j <n)
     {
-        str[i] = str[i-1];
+        if (a[i] < b[j])
+        {
+            c[k] = a[i];
+            i++;
+        }
+        else
+        {
+            c[k] = b[j];
+            j++;
+        }
+        k++;
     }
-    str[vitri] = ch;
-    len++;
-}
-void add_comma(char str[], int &len, char ch)
-{
-    int tmp= strlen(str)%3;
-    if (tmp != 0){
-        insert(str,len,',',tmp);
-        tmp += 4;
-    }
-    else tmp += 3;
-    for (int i=tmp; i<len;i = i + 4)
+    while (i<m)
     {
-        if (i != 0 && str[i] >= '0' && str[i] <= '9')
-            insert(str,len,',',i);
+        c[k]= a[i];
+        i++;
+        k++;
     }
-    len++;
+    while (j<n)
+    {
+        c[k]= b[j];
+        j++;
+        k++;
+    }
 }
